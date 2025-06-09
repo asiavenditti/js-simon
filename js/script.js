@@ -26,7 +26,7 @@ function randomNumbers() {
 
 generateNumbers = randomNumbers()
 
-
+// mostro i numeri in pagina con la proprietà con i ciclo for e la proprietà createElement
 const listNumbersEl = document.getElementById('numbers-list')
 
 for (let i = 0; i < generateNumbers.length; i++) {
@@ -34,5 +34,36 @@ for (let i = 0; i < generateNumbers.length; i++) {
     liEl.innerText = generateNumbers[i]
     listNumbersEl.append(liEl)
 }
+
+
+// rendo visibile il countdown in pagina 
+
+let countdown = 30;
+const formEl = document.getElementById('answers-form')
+const countdownEl = document.getElementById('countdown');
+const instructionsEl = document.getElementById('instructions')
+const startGameEl = document.getElementById('start-game')
+const message = document.getElementById('message')
+
+
+// utilizzo seInterval per dare rendere il countdown dinamico 
+
+const timer = setInterval(() => {
+
+    if (countdown <= 0) {
+
+        listNumbersEl.classList.add('d-none');
+        formEl.classList.remove('d-none');
+        countdownEl.classList.add('countdown')
+        instructionsEl.classList.add('d-none')
+        startGameEl.classList.remove('d-none')
+        clearInterval(timer);
+
+    } else {
+        countdown = --countdown
+        countdownEl.innerText = countdown;
+    }
+
+}, 1000);
 
 
