@@ -3,3 +3,25 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 NOTA: non è importante l'ordine con cui l'utente inserisce i numeri, basta che ne indovini il più possibile. */
 
 
+
+let generateNumbers = []
+
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomNumbers() {
+    const numbers = [];
+
+    for (let i = 0; i < 5; i++) {
+        numbers.push(getRndInteger(1, 50));
+    }
+
+    return numbers;
+}
+
+
+
+generateNumbers = randomNumbers()
+console.log(generateNumbers)
